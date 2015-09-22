@@ -1,0 +1,176 @@
+<polymer-element name="control-window">
+  <template>
+    <div class="outer">
+
+      <div class="collapser">
+
+      </div>
+
+      <div class="container">
+        <p>Vælg Klassetrin:</p>
+        <ul>
+          <li onclick="ChangeKlassetrin(1);" class="{{kl1}}"><span>7.</span></li><li onclick="ChangeKlassetrin(2);" class="{{kl2}}"><span>8.-9.</span></li>
+        </ul>
+      </div>
+      <div class="container">
+        <p>Navn på camp:</p>
+        <div class="thin">{{campName}}</div>
+      </div>
+      <div class="container">
+        <p>Dato på camp:</p>
+        <p class="thin">{{campDate}}</p>
+      </div>
+      <div class="switchContainer">
+        <ul class="switchButtons">
+          <li onclick="ChangeCamp('last');" class="{{s1}}"><span>forrige</span></li><li onclick="ChangeCamp('next');" class="{{s2}}"><span>næste</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <style>
+      .outer {
+        background: rgb(44, 62, 80);
+        width: 13vw;
+        min-height: 100%;
+        height: 35.5vw;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .container {
+        border-top: 0.1vw solid black;
+        height: 10vw;
+        margin-left: 1vw;
+        font-weight: 900;
+        font-size: 1vw;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        display: inline-block;
+        width: 3vw;
+        margin: 0;
+        text-align: center;
+        font-weight: 400;
+      }
+
+      li:hover {
+        background: rgb(52, 73, 94);
+      }
+
+      .selected {
+        background: rgb(52, 73, 94);
+        font-weight: 900;
+      }
+
+      .thin {
+        font-weight: 400;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      .nameContainer {
+        width: 11vw;
+      }
+
+      .switchContainer {
+        border-top: 0.1vw solid black;
+        height: 5vw;
+        margin-left: 1vw;
+        font-weight: 900;
+        font-size: 1vw;
+      }
+
+      .switchButtons li {
+        margin-top: 1vw;
+        width: 5vw;
+      }
+
+      .disabled {
+        color: rgb(44, 62, 80);
+      }
+      .disabled:hover {
+        background: rgb(44, 62, 80);
+      }
+    </style>
+  </template>
+  <script>
+    Polymer({
+      ready: function() {
+
+        UpdateCrontrolInfo = function() {
+          outsideScope.campName = campList[selectedCamp].name;
+          outsideScope.campDate = campList[selectedCamp].dateShow;
+        }
+
+        var outsideScope = this;
+
+        UpdateControlButtons = function() {
+          outsideScope.s2 = "disabled";
+          for (i = selectedCamp+1; i < campList.length; i++) {
+           if (campList[i].klassetrin === klassetrin || campList[i].klassetrin === 3) {
+             outsideScope.s2 = "";
+             break;
+           }
+          }
+
+          outsideScope.s1 = "disabled";
+
+          for (i = selectedCamp-1; i >= 0; i--) {
+            if (campList[i].klassetrin === klassetrin || campList[i].klassetrin === 3) {
+              outsideScope.s1 = "";
+            }
+          }
+        }
+
+        ChangeKlassetrin = function(clicked) {
+          if (clicked === 1) {
+            outsideScope.kl1 = "selected";
+            outsideScope.kl2 = "";
+            klassetrin = 1;
+          }else {
+            outsideScope.kl1 = "";
+            outsideScope.kl2 = "selected";
+            klassetrin = 2;
+          }
+          SelectCamp(clicked);
+
+          UpdateCrontrolInfo();
+          UpdateControlButtons();
+        }
+        ChangeKlassetrin(2);
+
+        ChangeCamp = function(input) {
+          if (input === "next") {
+            if (selectedCamp < campList.length-1) {
+              for (i = selectedCamp+1; i < campList.length; i++) {
+                if (campList[i].klassetrin === klassetrin || campList[i].klassetrin === 3) {
+                  selectedCamp = i;
+                  UpdateCrontrolInfo();
+                  UpdateControlButtons();
+                  break;
+                }
+              }
+            }
+          }else if (input === "last") {
+            if (selectedCamp > 0) {
+              for (i = selectedCamp-1; i >= 0; i--) {
+                if (campList[i].klassetrin === klassetrin || campList[i].klassetrin === 3) {
+                  selectedCamp = i;
+                  UpdateCrontrolInfo();
+                  UpdateControlButtons();
+                  break;
+                }
+              }
+            }
+          }
+        }
+      }
+    })
+  </script>
+</polymer-element>

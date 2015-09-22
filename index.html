@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>TalentCamp Timer</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+  <script src="bower_components/polymer/polymer.js"></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:900,400' rel='stylesheet' type='text/css'>
+
+  <link rel="import" href="elements/control-window/control-window.html">
+  <link rel="import" href="elements/timer-window/timer-window.html">
+
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <h1 class="nextCamp">Næste TalentCamp er om:</h1>
+    <timer-window></timer-window>
+
+    <control-window></control-window>
+
+    <h2 id="campStatus"></h2>
+
+    <div class="push"></div>
+  </div>
+  <div class="footer">
+    <p>Lavet af Christian Bertram :D</p>
+  </div>
+
+  <script src="datoer.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

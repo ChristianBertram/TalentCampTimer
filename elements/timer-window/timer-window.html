@@ -1,0 +1,129 @@
+<polymer-element name="timer-window">
+  <template>
+    <div class="outer">
+      <div class="inner">
+        <div class="days time">
+          <p class="number">{{days}}</p>
+          <p class="text">Dage</p>
+        </div><div class="hours time">
+          <p class="number">{{hours}}</p>
+          <p class="text">Timer</p>
+        </div><div class="minutes time">
+          <p class="number">{{minutes}}</p>
+          <p class="text">Minutter</p>
+        </div><div class="seconds time">
+          <p class="number">{{seconds}}</p>
+          <p class="text">Sekunder</p>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .outer {
+        background: rgb(236, 240, 241);
+        border-radius: 1vw;
+
+        width: 70vw;
+        height: 20vw;
+        margin: 0 auto;
+      }
+
+      .inner {
+        background: white;
+        border-radius: 0 0 0.3vw 0.3vw;
+
+        width: 69vw;
+        height: 18vw;
+        position: relative;
+        left: 0.5vw;
+        top: 1.5vw;
+      }
+
+      .time {
+        width: 17.25vw;
+        height: 18vw;
+
+        display: inline-block;
+        vertical-align: bottom;
+
+        text-align: center;
+      }
+
+      .number {
+        font-size: 5vw;
+        margin: 0;
+        margin-top: 4vw;
+
+        font-weight: 900;
+      }
+
+      .text {
+        font-size: 1.5vw;
+        margin: 0;
+        margin-top: 3vw;
+
+        font-weight: 400;
+        text-decoration: overline;
+      }
+
+      .days {
+        color: rgb(46, 204, 113);
+      }
+
+      .hours {
+        color: rgb(52, 152, 219);
+      }
+
+      .minutes {
+        color: rgb(231, 76, 60);
+      }
+
+      .seconds {
+        color: rgb(241, 196, 15);
+      }
+    </style>
+  </template>
+  <script>
+    Polymer({
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+      ready: function() {
+        var _second = 1000;
+        var _minute = _second * 60;
+        var _hour = _minute * 60;
+        var _day = _hour * 24;
+
+        function UpdateTime() {
+          this.hours = 5;
+          var now = new Date();
+          var timeLeft = new Date(campList[selectedCamp].dateFrom) - now;
+
+          if (timeLeft < 0) {
+            timeLeft = 0;
+
+            if (new Date(campList[selectedCamp].dateTo) - now > 0) {
+              //Campen er i gang
+              document.getElementById("campStatus").innerHTML = "Der er TalentCamp i dag!";
+            }else {
+              //Campen er ovre
+              document.getElementById("campStatus").innerHTML = "";
+              SelectCamp(klassetrin);
+            }
+          }else {
+            document.getElementById("campStatus").innerHTML = "";
+          }
+
+          outsideScope.days = Math.floor(timeLeft / _day);
+          outsideScope.hours = Math.floor((timeLeft % _day) / _hour);
+          outsideScope.minutes = Math.floor((timeLeft % _hour) / _minute);
+          outsideScope.seconds = Math.floor((timeLeft % _minute) / _second);
+        }
+
+        var outsideScope = this;
+        setInterval(UpdateTime, 1000);
+      }
+    })
+  </script>
+</polymer-element>

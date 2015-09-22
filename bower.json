@@ -1,0 +1,14 @@
+{
+  "name": "TalentCampTimer",
+  "description": "A timer that counts down the time to the next TalentCamp",
+  "version": "1.0",
+  "homepage": "",
+  "keywords": [
+  ],
+  "author": "Christian Bertram",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#latest",
+    "paper-elements": "Polymer/paper-elements#latest"
+  }
+}

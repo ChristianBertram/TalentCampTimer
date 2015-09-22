@@ -1,0 +1,48 @@
+* {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+html, body {
+  background: rgb(52, 152, 219);
+	height: 100%;
+}
+.wrapper {
+	min-height: 100%;
+	margin: 0 0 -3vw; /* the bottom margin is the negative value of the footer's height */
+	margin-top: 0;
+	width: 87vw;
+}
+
+.footer {
+  height: 3vw;
+  background: rgb(52, 73, 94);
+  color: rgb(149, 165, 166);
+  margin: 0;
+  padding: 0;
+}
+
+.footer p {
+  font-size: 1vw;
+  text-align: center;
+  padding-top: 1vw;
+}
+
+.nextCamp {
+  text-align: center;
+  font-size: 2vw;
+  margin:0;
+  margin-bottom: 1vw;
+  padding-top: 1vw;
+  color: white;
+}
+
+.push {
+  height: 11.1vw;
+}
+
+#campStatus {
+  color: White;
+  text-align: center;
+  padding-top: 3vw;
+  font-size: 5vw;
+}

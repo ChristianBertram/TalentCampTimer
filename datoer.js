@@ -25,7 +25,7 @@ var campList = [
   {
     name: "TalentCamp Nordjylland 2015 - DANSK & ENGELSK",
     klassetrin: 2,
-    dateShow: "Fra 24. okt. 2015 til 28. sep. 2015",
+    dateShow: "Fra 24. okt. 2015 til 28. okt. 2015",
     dateFrom: "10/24/2015 10:00 AM",
     dateTo: "10/28/2015 03:00 PM"
   },

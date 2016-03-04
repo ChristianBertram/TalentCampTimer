@@ -2,28 +2,14 @@
 var selectedCamp;
 var campList = [
   {
-    name: "TalentCamp Hjørring 2015 (2) - MATEMATIK",
+    name: "TalentCamp Greve 2016 - MATEMATIK",
     klassetrin: 1,
-    dateShow: "Fra 18. dec. 2015 til 21. dec. 2015",
-    dateFrom: "12/18/2015 10:00 AM",
-    dateTo: "12/21/2015 03:00 PM"
+    dateShow: "Fra 18. mar. 2016 til 22. mar. 2016",
+    dateFrom: "3/18/2016 10:00 AM",
+    dateTo: "3/22/2016 03:00 PM"
   },
   {
-    name: "TalentCamp Kolding 2016 - MATEMATIK",
-    klassetrin: 2,
-    dateShow: "Fra 8. jan. 2016 til 11. jan. 2016",
-    dateFrom: "1/8/2016 10:00 AM",
-    dateTo: "1/11/2016 03:00 PM"
-  },
-  {
-    name: "TalentCamp Farum 2016 - DANSK & ENGELSK",
-    klassetrin: 2,
-    dateShow: "Fra 28. jan. 2016 til 1. feb. 2016",
-    dateFrom: "1/28/2016 10:00 AM",
-    dateTo: "2/1/2016 03:00 PM"
-  },
-  {
-    name: "TalentCamp Bornholm 2016 - MATEMATIK, DANSK & ENGELSK",
+    name: "TalentCamp Bornholm 2016 - DANSK & ENGELSK",
     klassetrin: 1,
     dateShow: "Fra 18. mar. 2016 til 22. mar. 2016",
     dateFrom: "3/18/2016 10:00 AM",
